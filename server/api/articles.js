@@ -17,11 +17,11 @@ router.get("/buzzfeed", async (req, res, next) => {
 	}
 });
 
-router.get("/reddit", async (req, res, next) => {
+router.get("/techradar", async (req, res, next) => {
 	try {
 		newsapi.v2
 			.topHeadlines({
-                sources: "reddit-r-all"
+                sources: "techradar"
 			})
 			.then(response => {
                 res.send(response.articles)

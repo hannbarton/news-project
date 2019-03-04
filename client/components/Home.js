@@ -1,12 +1,13 @@
 import React from 'react'
 import axios from 'axios'
+// import EachArticle from './EachArticle'
 
 class Home extends React.Component {
     constructor() {
         super()
         this.state = {
             buzzfeed: [],
-            reddit: [],
+            techradar: [],
             google: [],
             natgeo: [],
             newsci: []
@@ -22,8 +23,8 @@ class Home extends React.Component {
         .then(res => this.setState({ buzzfeed: res.data }))
         .catch(err => console.log(err))
 
-        axios.get('/api/articles/reddit')
-        .then(res => this.setState({ reddit: res.data }))
+        axios.get('/api/articles/techradar')
+        .then(res => this.setState({ techradar: res.data }))
         .catch(err => console.log(err))
 
         axios.get('/api/articles/google')
@@ -42,14 +43,45 @@ class Home extends React.Component {
     render() {
         return(
             <div>
-                <p>
+                    {'Buzzfeed: '}
+                    <br/>
                     {this.state.buzzfeed.map((item, key) => {
                         return (
                             <a href={item.url} key={key}>{item.title}<br/></a>
                         )
                     })}
-                </p>
-
+                    <br/>
+                    {'Tech Radar'}
+                    <br/>
+                    {this.state.techradar.map((item, key) => {
+                        return (
+                            <a href={item.url} key={key}>{item.title}<br/></a>
+                        )
+                    })}
+                                        <br/>
+                    {'Google'}
+                    <br/>
+                    {this.state.google.map((item, key) => {
+                        return (
+                            <a href={item.url} key={key}>{item.title}<br/></a>
+                        )
+                    })}
+                                        <br/>
+                    {'National Geographic'}
+                    <br/>
+                    {this.state.natgeo.map((item, key) => {
+                        return (
+                            <a href={item.url} key={key}>{item.title}<br/></a>
+                        )
+                    })}
+                                        <br/>
+                    {'New Scientist'}
+                    <br/>
+                    {this.state.newsci.map((item, key) => {
+                        return (
+                            <a href={item.url} key={key}>{item.title}<br/></a>
+                        )
+                    })}
             </div>
         )
     }
