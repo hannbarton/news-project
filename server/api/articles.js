@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Article } = require("../db/models");
 const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI("a1819176962141cdbb40972e986690ae");
+const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
 router.get("/buzzfeed", async (req, res, next) => {
 	try {

@@ -11,6 +11,8 @@ const app = express();
 
 module.exports = app;
 
+require('../secrets')
+
 // serialize User
 passport.serializeUser((user, done) => done(null, user.id));
 
