@@ -5,7 +5,7 @@ class Home extends React.Component {
     constructor() {
         super()
         this.state = {
-            posts: []
+            buzzfeed: []
         }
     }
 
@@ -15,7 +15,7 @@ class Home extends React.Component {
 
     async getData() {
         axios.get('/api/articles/buzzfeed')
-        .then(res => this.setState({ posts: res.data.map(each => each.title) }))
+        .then(res => this.setState({ posts: res.data }))
         .catch(err => console.log(err))
     }
 
@@ -23,7 +23,11 @@ class Home extends React.Component {
         return(
             <div>
                 <p>
-                    {this.state.posts}
+                    {this.state.buzzfeed.map((item, key) => {
+                        return (
+                            <a href={item.url} key={key}>{item.title}<br/></a>
+                        )
+                    })}
                 </p>
 
             </div>
