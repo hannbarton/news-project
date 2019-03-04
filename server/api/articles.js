@@ -10,7 +10,7 @@ router.get("/buzzfeed", async (req, res, next) => {
                 sources: "buzzfeed"
 			})
 			.then(response => {
-                res.send(response)
+                res.send(response.articles)
 			});
 	} catch (err) {
 		next(err);
@@ -24,7 +24,7 @@ router.get("/reddit", async (req, res, next) => {
                 sources: "reddit-r-all"
 			})
 			.then(response => {
-                res.send(response)
+                res.send(response.articles)
 			});
 	} catch (err) {
 		next(err);
@@ -38,7 +38,7 @@ router.get("/google", async (req, res, next) => {
                 sources: "google-news"
 			})
 			.then(response => {
-                res.send(response)
+                res.send(response.articles)
 			});
 	} catch (err) {
 		next(err);
@@ -52,7 +52,7 @@ router.get("/natgeo", async (req, res, next) => {
                 sources: "national-geographic"
 			})
 			.then(response => {
-                res.send(response)
+                res.send(response.articles)
 			});
 	} catch (err) {
 		next(err);
@@ -66,7 +66,7 @@ router.get("/newsci", async (req, res, next) => {
                 sources: "new-scientist"
 			})
 			.then(response => {
-                res.send(response)
+                res.send(response.articles)
 			});
 	} catch (err) {
 		next(err);
