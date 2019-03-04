@@ -44,6 +44,8 @@ const createApp = () => {
 	app.use(passport.initialize());
 	app.use(passport.session());
 
+	app.use('/api', require('./api'))
+
 	// static file-serving middleware
 	app.use(express.static(path.join(__dirname, "..", "public")));
 
