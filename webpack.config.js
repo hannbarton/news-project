@@ -25,6 +25,9 @@ module.exports = {
           }
         ]
     },
+    watchOptions: {
+      ignored: /node_modules/
+    },
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
@@ -33,11 +36,4 @@ module.exports = {
         filename: "bundle.js",
         publicPath: "/"
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
-    devServer: {
-        hot: true,
-        historyApiFallback: true
-    }
 };
