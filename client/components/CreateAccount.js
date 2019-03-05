@@ -41,7 +41,7 @@ class CreateAccount extends React.Component {
 	render() {
 		return (
 			<div className='sign-up'>
-			<form id='sign-up-form' onSubmit={this.handleSubmit}>
+			<form className='sign-up-form' onSubmit={this.handleSubmit}>
 			<h1>Hello, Friend!</h1>
 				<h3>Enter your personal details and create an account</h3>
 				<input

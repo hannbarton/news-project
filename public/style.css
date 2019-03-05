@@ -7,18 +7,19 @@ a {
 	text-decoration: none;
 }
 
-body {
-	color: black;
+.main-container {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 90vh;
+	margin: 0px 50px;
 }
 
-.login-signup-container {
-    text-align: center;
-    align-content: center;
-    width: 70vw;
-}
 
 h2 {
-	/* font-family: "Futura medium"; */
+    /* font-family: "Futura medium"; */
 	font-size: 40pt;
 }
 
@@ -26,16 +27,47 @@ h1 {
     font-size: 52pt;
 }
 
+.login-signup-container {
+    /* text-align: center;
+    width: 100%;
+    display: table;
+    margin: auto;
+    padding: 2em 0em; */
+    background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	/* padding: 0 50px; */
+	height: 90%;
+    text-align: center;
+    display: table;
+}
+
 .login {
-    float: left;
+    display: table-cell;
     text-align: center;
     margin: auto;
-    background: pink
+    background: pink;
+    vertical-align: middle;
+    width: 40vw;
+    height: 80vh;
+    border-radius: 25px;
 }
 
 .sign-up{
-    float: left;
+    display: table-cell;
     text-align: center;
     margin: auto;
-    background: blue
+    background: orange;
+    vertical-align: middle;
+    width: 40vw;
+    height: 80vh;
+    border-radius: 25px;
+}
+
+.sign-up-form {
+    /* text-align: center;
+    margin: auto;
+    vertical-align: middle; */
 }
