@@ -39,3 +39,7 @@ router.get('/:id', async (req, res, next) => {
 	}
 });
 
+router.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+})
