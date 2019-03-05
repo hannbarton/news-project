@@ -1,5 +1,4 @@
 import React from 'react'
-import CreateAccount from './CreateAccount'
 import {Link} from 'react-router-dom'
 
 class CreateAccount extends React.Component {
@@ -21,7 +20,6 @@ class CreateAccount extends React.Component {
             <br/>
             <input type="submit" value="Create Account" />
           </form>
-            // <Link to='/'>Create an Account</Link>
         )
     }
 }
