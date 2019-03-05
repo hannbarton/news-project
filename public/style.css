@@ -19,36 +19,31 @@ a {
 
 
 h2 {
-    /* font-family: "Futura medium"; */
-	font-size: 40pt;
+	font-size: 30pt;
 }
 
 h1 {
-    font-size: 52pt;
+    font-size: 42pt;
 }
 
 .login-signup-container {
-    /* text-align: center;
-    width: 100%;
-    display: table;
-    margin: auto;
-    padding: 2em 0em; */
     background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	/* padding: 0 50px; */
 	height: 90%;
     text-align: center;
     display: table;
 }
 
 .login {
+    border: 3px solid #FF4B2B;
     display: table-cell;
     text-align: center;
+    color: #FF4B2B;
     margin: auto;
-    background: pink;
+    background: white;
     vertical-align: middle;
     width: 40vw;
     height: 80vh;
@@ -59,15 +54,42 @@ h1 {
     display: table-cell;
     text-align: center;
     margin: auto;
-    background: orange;
+    background: #FF4B2B;
     vertical-align: middle;
     width: 40vw;
     height: 80vh;
     border-radius: 25px;
 }
 
-.sign-up-form {
-    /* text-align: center;
-    margin: auto;
-    vertical-align: middle; */
+#sign-up-button {
+    border-radius: 20px;
+    margin: 10px;
+	border: 1px solid white;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+#sign-up-button:hover {
+    background-color: white;
+    color: #FF4B2B
+}
+
+#login-button {
+    border-radius: 20px;
+    margin: 10px;
+	border: 1px solid #FF4B2B;
+	background-color: white;
+	color: #FF4B2B;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
 }
