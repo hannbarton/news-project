@@ -22,9 +22,16 @@ class CreateAccount extends React.Component {
 	}
 
 	handleSubmit() {
-		event.preventDefault();
-		axios.post("/users", this.state).then(res => {
-			console.log(res.data);
+        event.preventDefault();
+          const user = {
+            firstName: this.state.firstName,
+			lastName: this.state.lastName,
+			email: this.state.email,
+			password: this.state.password,
+    };
+		axios.post("/api/users", user).then(res => {
+            console.log(res.data);
+            console.log(user)
 		});
 	}
 
