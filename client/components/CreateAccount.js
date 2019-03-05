@@ -30,8 +30,11 @@ class CreateAccount extends React.Component {
 			password: this.state.password,
     };
 		axios.post("/api/users", user).then(res => {
-            console.log(res.data);
-            console.log(user)
+            if (res.data.redirect == '/') {
+                window.location = "/"
+            } else if (res.data.redirect == '/login'){
+                window.location = "/login"
+            }
 		});
 	}
 

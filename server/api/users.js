@@ -16,10 +16,9 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try {
-        const user = await User.create(req.body)
-        res.json({
-            user
-        })
+        await User.create(req.body)
+        const redir = { redirect: "/" };
+        res.json(redir);
     }
     catch(err) {
         next(err)
