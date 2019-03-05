@@ -1,6 +1,4 @@
 import React from "react";
-import { Link , BrowserRouter} from "react-router-dom";
-import CreateAccount from "./CreateAccount";
 
 class LoginForm extends React.Component {
 	constructor() {
@@ -16,7 +14,6 @@ class LoginForm extends React.Component {
 					<input type="password" ref="password" placeholder="enter password" />
 					<input type="submit" value="Login" />
 				</form>
-				<Link to="/signup">Create an account</Link>
 			</div>
 
 		);
