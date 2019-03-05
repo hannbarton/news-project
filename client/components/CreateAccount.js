@@ -38,6 +38,7 @@ class CreateAccount extends React.Component {
 			axios
 				.post("/api/users/signup", user)
 				.then(res => {
+					console.log(res)
 					window.location = res.data.redirect;
 				})
 				.catch(function(error) {
