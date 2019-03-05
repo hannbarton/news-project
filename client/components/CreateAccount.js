@@ -29,14 +29,22 @@ class CreateAccount extends React.Component {
 			email: this.state.email,
 			password: this.state.password
 		};
-		axios
-			.post("/api/users", user)
-			.then(res => {
-				window.location = res.data.redirect;
-			})
-			.catch(function(error) {
-				window.location = "/login";
-			});
+
+		if (user.firstName === '' || user.lastName === '' || user.email ===
+		'' || user.password === '') {
+			alert('please fill out every line on the form before submitting')
+		}
+		else {
+			axios
+				.post("/api/users", user)
+				.then(res => {
+					window.location = res.data.redirect;
+				})
+				.catch(function(error) {
+					window.location = "/login";
+				})
+		}
+
 	}
 
 	render() {
