@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         await User.create(req.body)
-        const redir = { redirect: "/" };
+        const redir = { redirect: "/home" };
         res.json(redir);
     }
     catch(err) {

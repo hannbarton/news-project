@@ -22,66 +22,69 @@ class CreateAccount extends React.Component {
 	}
 
 	handleSubmit() {
-        event.preventDefault();
-          const user = {
-            firstName: this.state.firstName,
+		event.preventDefault();
+		const user = {
+			firstName: this.state.firstName,
 			lastName: this.state.lastName,
 			email: this.state.email,
-			password: this.state.password,
-    };
-		axios.post("/api/users", user).then(res => {
-            if (res.data.redirect == '/') {
-                window.location = "/"
-            } else if (res.data.redirect == '/login'){
-                window.location = "/login"
-            }
-		});
+			password: this.state.password
+		};
+		axios
+			.post("/api/users", user)
+			.then(res => {
+				window.location = res.data.redirect;
+			})
+			.catch(function(error) {
+				window.location = "/login";
+			});
 	}
 
 	render() {
 		return (
-			<div className='sign-up'>
-			<form className='sign-up-form' onSubmit={this.handleSubmit}>
-			<h1>Hello, Reader!</h1>
-				<h5><span>Enter your personal details</span><span>and create an account</span></h5>
+			<div className="sign-up">
+				<form className="sign-up-form" onSubmit={this.handleSubmit}>
+					<h1>Hello, Reader!</h1>
+					<h5>
+						<span>Enter your personal details</span>
+						<span>and create an account</span>
+					</h5>
 
-				<input
-					type="text"
-					name="firstName"
-					onChange={this.handleChange}
-					value={this.state.name}
-					placeholder="enter your first name"
-				/>
-				<br />
-				<input
-					type="text"
-					name="lastName"
-					onChange={this.handleChange}
-					value={this.state.name}
-					placeholder="enter your last name"
-				/>
-				<br />
-				<input
-					type="text"
-					name="email"
-					onChange={this.handleChange}
-					value={this.state.name}
-					placeholder="enter your email"
-				/>
-				<br />
-				<input
-					type="password"
-					name="password"
-					onChange={this.handleChange}
-					value={this.state.name}
-					placeholder="create password"
-				/>
-				<br />
-				<button
-					id='sign-up-button'
-					type="submit"
-				>Sign up</button>
-			</form>
+					<input
+						type="text"
+						name="firstName"
+						onChange={this.handleChange}
+						value={this.state.name}
+						placeholder="enter your first name"
+					/>
+					<br />
+					<input
+						type="text"
+						name="lastName"
+						onChange={this.handleChange}
+						value={this.state.name}
+						placeholder="enter your last name"
+					/>
+					<br />
+					<input
+						type="text"
+						name="email"
+						onChange={this.handleChange}
+						value={this.state.name}
+						placeholder="enter your email"
+					/>
+					<br />
+					<input
+						type="password"
+						name="password"
+						onChange={this.handleChange}
+						value={this.state.name}
+						placeholder="create password"
+					/>
+					<br />
+					<button id="sign-up-button" type="submit">
+						Sign up
+					</button>
+				</form>
 			</div>
 		);
 	}
