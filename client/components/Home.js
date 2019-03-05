@@ -50,6 +50,9 @@ class Home extends React.Component {
 		return (
 			<div>
 				<LoginForm />
+                <br/>
+                <br/>
+                <br/>
 				{"Buzzfeed: "}
 				<br />
 				{this.state.buzzfeed.map((item, key) => {
