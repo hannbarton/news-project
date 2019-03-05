@@ -43,7 +43,8 @@ class CreateAccount extends React.Component {
 			<div className='sign-up'>
 			<form className='sign-up-form' onSubmit={this.handleSubmit}>
 			<h1>Hello, Reader!</h1>
-				<h3>Enter your personal details and create an account</h3>
+				<h5><span>Enter your personal details</span><span>and create an account</span></h5>
+
 				<input
 					type="text"
 					name="firstName"
