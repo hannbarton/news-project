@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 class CreateAccount extends React.Component {
     constructor() {

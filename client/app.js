@@ -5,8 +5,8 @@ import Routes from './routes'
 const App = () => {
 	return (
 		<div>
-			<Home />
 			<Routes/>
+			<Home />
 		</div>
 	);
 };

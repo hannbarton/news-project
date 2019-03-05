@@ -49,7 +49,7 @@ class Home extends React.Component {
 	render() {
 		return (
 			<div>
-				<LoginForm />
+				{/* <LoginForm /> */}
                 <br/>
                 <br/>
                 <br/>
