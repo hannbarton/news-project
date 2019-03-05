@@ -9,17 +9,23 @@ class CreateAccount extends React.Component {
             email: '',
             password: ''
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event) {
-        event.preventDefault()
+        event.preventDefault();
 		this.setState({
 			[event.target.name]: event.target.value,
 		})
     }
 
     handleSubmit() {
-        axios.post('/users')
+        event.preventDefault();
+        axios.post('/users', {user})
+        .then(res => {
+            console.log(res.data);
+          })
     }
 
     render() {
@@ -34,7 +40,7 @@ class CreateAccount extends React.Component {
             <br/>
             <input type="password" ref="password" placeholder="create password" />
             <br/>
-            <input type="submit" value="Create Account" />
+            <input type="submit" value="Create Account" onSubmit={this.handleSubmit}/>
           </form>
         )
     }
