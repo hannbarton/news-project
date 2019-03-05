@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const passport = require("passport");
 const { User } = require('../db/models');
 module.exports = router;
 
@@ -13,7 +14,20 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/login', passport.authenticate('local'), (req, res)=> {
+      if(!req.user) {
+        res.status(401);
+        res.end();
+      }
+      let user = {
+        id: req.user.id,
+        email: req.user.local.email
+      };
+      res.json({user});
+      res.end();
+    });
+
+router.post('/signup', async (req, res, next) => {
 	try {
 		await User.create(req.body);
 		const redir = { redirect: '/home' };

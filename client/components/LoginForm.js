@@ -27,11 +27,11 @@ class LoginForm extends React.Component {
 			password: this.state.password
 		}
 
-		if (this.state.email === '' || this.state.password === '') {
+		if (user.email == '' || user.password == '') {
 			alert('please enter both email and password to login')
 		}
 		else {
-			axios.get('/api/users')
+			axios.post('/api/users/login')
 			.then(res => {
 				console.log(res)
 			})
@@ -43,11 +43,20 @@ class LoginForm extends React.Component {
 			<div className='login'>
 					<h2>Sign in</h2>
 				<form id='login-form' onSubmit={this.handleSubmit}>
-					<input type="text" ref="email" placeholder="enter your email" />
+					<input type="text"
+					name="email"
+					onChange={this.handleChange}
+					value={this.state.email}
+					placeholder="enter your email" />
 					<br/>
-					<input type="password" ref="password" placeholder="enter password" />
+					<input type="password"
+					name="password"
+					onChange={this.handleChange}
+					value={this.state.password}
+					placeholder="enter password" />
 					<br/>
-					<button type="submit" 					id='login-button'>Login</button>
+					<button type="submit"
+					id='login-button'>Login</button>
 				</form>
 			</div>
 

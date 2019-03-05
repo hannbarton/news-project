@@ -36,7 +36,7 @@ class CreateAccount extends React.Component {
 		}
 		else {
 			axios
-				.post("/api/users", user)
+				.post("/api/users/signup", user)
 				.then(res => {
 					window.location = res.data.redirect;
 				})
