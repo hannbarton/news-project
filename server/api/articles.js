@@ -17,11 +17,11 @@ router.get("/buzzfeed", async (req, res, next) => {
 	}
 });
 
-router.get("/techradar", async (req, res, next) => {
+router.get("/wired", async (req, res, next) => {
 	try {
 		newsapi.v2
 			.topHeadlines({
-                sources: "techradar"
+                sources: "wired"
 			})
 			.then(response => {
                 res.send(response.articles)

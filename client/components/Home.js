@@ -7,7 +7,7 @@ class Home extends React.Component {
         super()
         this.state = {
             buzzfeed: [],
-            techradar: [],
+            wired: [],
             google: [],
             natgeo: [],
             newsci: []
@@ -23,8 +23,8 @@ class Home extends React.Component {
         .then(res => this.setState({ buzzfeed: res.data }))
         .catch(err => console.log(err))
 
-        axios.get('/api/articles/techradar')
-        .then(res => this.setState({ techradar: res.data }))
+        axios.get('/api/articles/wired')
+        .then(res => this.setState({ wired: res.data }))
         .catch(err => console.log(err))
 
         axios.get('/api/articles/google')
@@ -51,9 +51,9 @@ class Home extends React.Component {
                         )
                     })}
                     <br/>
-                    {'Tech Radar'}
+                    {'Wired:'}
                     <br/>
-                    {this.state.techradar.map((item, key) => {
+                    {this.state.wired.map((item, key) => {
                         return (
                             <a href={item.url} key={key}>{item.title}<br/></a>
                         )
