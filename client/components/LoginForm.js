@@ -33,7 +33,8 @@ class LoginForm extends React.Component {
 		else {
 			axios.post('/api/users/login')
 			.then(res => {
-				console.log(res)
+				console.log(res.data)
+				window.location = '/home'
 			})
 		}
 	}

@@ -10,12 +10,13 @@ const User = require('./db')
 const sessionStore = new SequelizeStore({ db });
 const PORT = 3000;
 const app = express();
+const flash = require('connect-flash');
 
 module.exports = app;
 
 require('../secrets')
 
-passport.use(new LocalStrategy(
+passport.use('local', new LocalStrategy({passReqToCallback : true},
   function(email, password, done) {
     User.findOne({ email: email }, function (err, user) {
       if (err) { return done(err); }
@@ -41,6 +42,8 @@ passport.deserializeUser(async (id, done) => {
 		done(err);
 	}
 });
+
+app.use(flash());
 
 const createApp = () => {
 	// logging middleware
