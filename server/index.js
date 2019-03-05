@@ -3,8 +3,10 @@ const express = require("express");
 const morgan = require("morgan");
 const session = require("express-session");
 const passport = require("passport");
+const LocalStrategy = require('passport-local').Strategy;
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("./db");
+const User = require('./db')
 const sessionStore = new SequelizeStore({ db });
 const PORT = 3000;
 const app = express();
@@ -13,8 +15,22 @@ module.exports = app;
 
 require('../secrets')
 
+passport.use(new LocalStrategy(
+  function(email, password, done) {
+    User.findOne({ email: email }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (!user.verifyPassword(password)) { return done(null, false); }
+      return done(null, user);
+    });
+  }
+));
+
 // serialize User
-passport.serializeUser((user, done) => done(null, user.id));
+passport.serializeUser((user, done) => {
+	console.log('serialize', user)
+	done(null, user.id)
+});
 
 // deserialize User
 passport.deserializeUser(async (id, done) => {
@@ -43,6 +59,7 @@ const createApp = () => {
 			saveUninitialized: false
 		})
 	);
+
 	app.use(passport.initialize());
 	app.use(passport.session());
 
