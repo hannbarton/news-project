@@ -16,10 +16,7 @@ class LoginForm extends React.Component {
 					<input type="password" ref="password" placeholder="enter password" />
 					<input type="submit" value="Login" />
 				</form>
-                {/* <BrowserRouter> */}
-
-				{/* <Link to="/signup">Create an account</Link> */}
-                {/* </BrowserRouter> */}
+				<Link to="/signup">Create an account</Link>
 			</div>
 
 		);
