@@ -6,7 +6,7 @@ import CreateAccount from './CreateAccount'
 class LoginSignup extends React.Component {
     render() {
         return (
-            <div>
+            <div className='login-signup-container'>
                 <LoginForm/>
                 <CreateAccount/>
             </div>

@@ -7,9 +7,9 @@ class LoginForm extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<form>
-					<h3>Sign in</h3>
+			<div className='login'>
+					<h2>Sign in</h2>
+				<form id='login-form'>
 					<input type="text" ref="email" placeholder="enter your email" />
 					<input type="password" ref="password" placeholder="enter password" />
 					<input type="submit" value="Login" />

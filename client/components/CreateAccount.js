@@ -40,8 +40,10 @@ class CreateAccount extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<h3>Create an Account</h3>
+			<div className='sign-up'>
+			<form id='sign-up-form' onSubmit={this.handleSubmit}>
+			<h1>Hello, Friend!</h1>
+				<h3>Enter your personal details and create an account</h3>
 				<input
 					type="text"
 					name="firstName"
@@ -79,6 +81,7 @@ class CreateAccount extends React.Component {
 					value="Create Account"
 				/>
 			</form>
+			</div>
 		);
 	}
 }

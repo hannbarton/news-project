@@ -1,7 +1,41 @@
+@font-face {
+	font-family: "Futura medium";
+	src: url(./futura/futura\medium\bt.ttf);
+}
+
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 body {
-	color: black
+	color: black;
+}
+
+.login-signup-container {
+    text-align: center;
+    align-content: center;
+    width: 70vw;
+}
+
+h2 {
+	/* font-family: "Futura medium"; */
+	font-size: 40pt;
+}
+
+h1 {
+    font-size: 52pt;
+}
+
+.login {
+    float: left;
+    text-align: center;
+    margin: auto;
+    background: pink
+}
+
+.sign-up{
+    float: left;
+    text-align: center;
+    margin: auto;
+    background: blue
 }
