@@ -42,7 +42,7 @@ class CreateAccount extends React.Component {
 					window.location = '/home';
 				})
 				.catch(function(error) {
-					window.location = "/login";
+					window.location = "/signup";
 				})
 		}
 

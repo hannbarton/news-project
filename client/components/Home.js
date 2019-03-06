@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
-// import EachArticle from './EachArticle'
-import LoginForm from "./LoginForm";
+import Welcome from "./Welcome";
 
 class Home extends React.Component {
 	constructor() {
@@ -49,7 +48,7 @@ class Home extends React.Component {
 	render() {
 		return (
 			<div>
-				{/* <LoginForm /> */}
+				<Welcome/>
                 <br/>
                 <br/>
                 <br/>
