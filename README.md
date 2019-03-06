@@ -20,4 +20,5 @@ There are three views in my application:
 ## How to get my application running:
 1.) Register with news api to generate an api-key and get access to thier api. https://newsapi.org/
 2.) Save the api key within your secrets.js folder in the root of the application and save it as `process.env.NEWS_API_KEY`
-3.) `npm run start-dev`
+3.) Create a db called `news-project` in postgreSQL
+4.) `npm run start-dev`
