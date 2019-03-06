@@ -11,6 +11,7 @@ class Navbar extends React.Component {
     event.preventDefault();
     axios.post('/api/users/logout')
     .then(res => {
+      console.log(res.data)
       window.location = '/'
     })
 

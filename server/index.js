@@ -18,30 +18,20 @@ require("../secrets");
 
 // serialize User
 passport.serializeUser((user, done) => {
-	console.log("serialize", user);
+	console.log("serializedd", user);
 	done(null, user.id);
 });
 
 // deserialize User
 passport.deserializeUser(async (id, done) => {
 	try {
-		const user = await db.models.user.findById(id);
+		console.log('deseralizeddd', id)
+		const user = await db.models.user.findByPk(id);
 		done(null, user);
 	} catch (err) {
 		done(err);
 	}
 });
-
-// passport.use('local-login', new LocalStrategy({passReqToCallback : true},
-//   function(email, password, done) {
-//     User.findOne({ email: email }, function (err, user) {
-//       if (err) { return done(err); }
-//       if (!user) { return done(null, false); }
-//       if (!user.verifyPassword(password)) { return done(null, false); }
-//       return done(null, user);
-//     });
-//   }
-// ));
 
 passport.use('local-login', new LocalStrategy({
 	usernameField: 'email',
@@ -105,14 +95,6 @@ passport.use(
 		}
 	)
 );
-
-// passport.use('local-signup', new LocalStrategy({passReqToCallback : true},
-//   function(email, password, done) {
-// 		User.findOrCreate({ email: email, password: password })
-// 		.then(([user]) => done(null, user))
-// 		.catch(done)
-//   }
-// ));
 
 app.use(flash());
 
