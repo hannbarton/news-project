@@ -37,6 +37,8 @@ class LoginForm extends React.Component {
 			.then(res => {
 				console.log(res.data)
 				window.location = '/home'
+			}).catch(function(error) {
+				window.location = "/signup";
 			})
 		}
 	}
