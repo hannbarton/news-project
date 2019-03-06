@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import axios from 'axios';
 
 class Navbar extends React.Component {
@@ -12,7 +11,6 @@ class Navbar extends React.Component {
     event.preventDefault();
     axios.post('/api/users/logout')
     .then(res => {
-      console.log(res.data)
       window.location = '/'
     })
 
@@ -24,7 +22,7 @@ class Navbar extends React.Component {
       <nav>
           <div>
             {/* <Link to="/home">Home</Link> */}
-            <button>
+            <button onSubmit={this.handleSubmit}>
               Logout
             </button>
           </div>

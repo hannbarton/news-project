@@ -6,7 +6,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("./db");
-const User = require("./db");
+const User = require("./db/models/user");
 const sessionStore = new SequelizeStore({ db });
 const PORT = 3000;
 const app = express();
@@ -43,40 +43,32 @@ passport.deserializeUser(async (id, done) => {
 //   }
 // ));
 
-passport.use(
-	"local-login",
-	new LocalStrategy(
-		{
-			passReqToCallback: true
-		},
-		function(req, email, password, done) {
-			User.findOne({ email: email }, function(err, user) {
-				// if there are any errors, return the error before anything else
-				if (err) return done(err);
-
-				// if no user is found, return the message
-				if (!user)
-					return done(null, false, req.flash("loginMessage", "No user found."));
-
-				// if the user is found but the password is wrong
-				if (!user.validPassword(password))
-					return done(
-						null,
-						false,
-						req.flash("loginMessage", "Oops! Wrong password.")
-					);
-
-				// all is well, return successful user
-				return done(null, user);
-			});
-		}
-	)
-);
+passport.use('local-login', new LocalStrategy({
+	usernameField: 'email',
+	passwordField: 'password',
+	passReqToCallback : true
+},
+  async function(email, password, done) {
+    await db.models.user.findOne({ where: {
+			email: email} }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 
 passport.use(
 	"local-signup",
 	new LocalStrategy(
 		{
+			usernameField: 'email',
+			passwordField: 'password',
 			passReqToCallback: true
 		},
 		function(req, email, password, done) {
@@ -84,7 +76,11 @@ passport.use(
 			process.nextTick(function() {
 				// find a user whose email is the same as the forms email
 				// we are checking to see if the user trying to login already exists
-				User.findOne({ email: email }, function(err, user) {
+				db.models.user.findOne({
+					where: {
+						email: email
+					}
+				 }, function(err, user) {
 					// if there are any errors, return the error
 					if (err) return done(err);
 
@@ -99,7 +95,8 @@ passport.use(
 						// if there is no user with that email
 						// create the user
 
-						User.create({ email: email, password: password })
+						db.models.user.create({ where: {
+							email: email, password: password }})
 							.then(([user]) => done(null, user))
 							.catch(done);
 					}

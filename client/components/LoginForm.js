@@ -27,11 +27,13 @@ class LoginForm extends React.Component {
 			password: this.state.password
 		}
 
+		const defaultUser = {}
+
 		if (user.email == '' || user.password == '') {
 			alert('please enter both email and password to login')
 		}
 		else {
-			axios.post('/api/users/login')
+			axios.post('/api/users/login', user || defaultUser)
 			.then(res => {
 				console.log(res.data)
 				window.location = '/home'
