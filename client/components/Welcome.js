@@ -19,7 +19,6 @@ class Welcome extends React.Component {
 				lastName: res.data.lastName,
 				email: res.data.email
 			});
-
 			console.log(res.data);
 		});
 	}

@@ -139,6 +139,7 @@ class Home extends React.Component {
 							key={key}
 							title={item.title}
 							url={item.url}
+							urlToImage={item.urlToImage}
 							>{item.source}
 							</EachArticle>
 						);

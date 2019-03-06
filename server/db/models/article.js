@@ -10,7 +10,10 @@ const Article = db.define('article', {
 	source: {
 		type: Sequelize.STRING
 	},
-	link: {
+	url: {
+		type: Sequelize.TEXT
+	},
+	urlToImage: {
 		type: Sequelize.TEXT
 	}
 });
