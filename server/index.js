@@ -24,7 +24,7 @@ passport.serializeUser((user, done) => {
 // deserialize User
 passport.deserializeUser(async (id, done) => {
 	try {
-		console.log('deseralizeddd', id)
+		console.log("deseralizeddd", id);
 		const user = await db.models.user.findByPk(id);
 		done(null, user);
 	} catch (err) {
@@ -32,44 +32,56 @@ passport.deserializeUser(async (id, done) => {
 	}
 });
 
-passport.use('local-login', new LocalStrategy({
-	usernameField: 'email',
-	passwordField: 'password',
-	passReqToCallback : true
-},
-  async function(email, password, done) {
-    await db.models.user.findOne({ where: {
-			email: email} }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
+passport.use(
+	"local-login",
+	new LocalStrategy(
+		{
+			usernameField: "email",
+			passwordField: "password",
+			passReqToCallback: true
+		},
+		async function(email, password, done) {
+			await db.models.user.findOne(
+				{
+					where: {
+						email: email
+					}
+				},
+				function(err, user) {
+					if (err) {
+						return done(err);
+					}
+					if (!user) {
+						return done(null, false, { message: "Incorrect username." });
+					}
+					if (!user.validPassword(password)) {
+						return done(null, false, { message: "Incorrect password." });
+					}
+					return done(null, user);
+				}
+			);
+		}
+	)
+);
 
 passport.use(
 	"local-signup",
 	new LocalStrategy(
 		{
-			usernameField: 'email',
-			passwordField: 'password',
+			usernameField: "email",
+			passwordField: "password",
 			passReqToCallback: true
 		},
-		function(req, email, password, done) {
-			// asynchronous; User.findOne wont fire unless data is sent back
-			process.nextTick(function() {
-				// find a user whose email is the same as the forms email
-				// we are checking to see if the user trying to login already exists
-				db.models.user.findOne({
+		async function(req, email, password, done) {
+			// find a user whose email is the same as the forms email
+			// we are checking to see if the user trying to login already exists
+			await db.models.user.findOne(
+				{
 					where: {
 						email: email
 					}
-				 }, function(err, user) {
+				},
+				function(err, user) {
 					// if there are any errors, return the error
 					if (err) return done(err);
 
@@ -81,8 +93,8 @@ passport.use(
 							req.flash("signupMessage", "That email is already taken.")
 						);
 					}
-				});
-			});
+				}
+			);
 		}
 	)
 );

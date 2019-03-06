@@ -10,8 +10,10 @@ class Home extends React.Component {
 			wired: [],
 			google: [],
 			natgeo: [],
-			newsci: []
+			newsci: [],
+			buzzfeedOpen: false
 		};
+		this.handleOpen = this.handleOpen.bind(this)
 	}
 
 	componentDidMount() {
@@ -19,10 +21,10 @@ class Home extends React.Component {
 	}
 
 	async getData() {
-		axios
-			.get("/api/articles/buzzfeed")
-			.then(res => this.setState({ buzzfeed: res.data }))
-			.catch(err => console.log(err));
+		// axios
+		// 	.get("/api/articles/buzzfeed")
+		// 	.then(res => this.setState({ buzzfeed: res.data }))
+		// 	.catch(err => console.log(err));
 
 		axios
 			.get("/api/articles/wired")
@@ -45,14 +47,33 @@ class Home extends React.Component {
 			.catch(err => console.log(err));
 	}
 
+	handleOpen() {
+		if (!this.state.buzzfeedOpen) {
+			this.setState({
+				buzzfeedOpen: true
+			})
+			axios
+			.get("/api/articles/buzzfeed")
+			.then(res => this.setState({ buzzfeed: res.data }))
+			.catch(err => console.log(err));
+		}
+		else {
+			this.setState({
+				buzzfeedOpen: false
+			})
+			this.setState({buzzfeed: []})
+		}
+	}
+
 	render() {
 		return (
-			<div>
+			<div className='home'>
 				<Welcome/>
                 <br/>
                 <br/>
                 <br/>
-				{"Buzzfeed: "}
+				<div className='article-container'>
+				<button type='submit' onClick={this.handleOpen}>Buzzfeed</button>
 				<br />
 				{this.state.buzzfeed.map((item, key) => {
 					return (
@@ -62,6 +83,7 @@ class Home extends React.Component {
 						</a>
 					);
 				})}
+				</div>
 				<br />
 				{"Wired:"}
 				<br />

@@ -18,6 +18,9 @@ a {
 	margin: 0px 50px;
 }
 
+.article-container {
+    background-color: lightcyan
+}
 
 h2 {
 	font-size: 30pt;
@@ -35,6 +38,10 @@ h5 {
 
 span {
     display: block;
+}
+
+.home {
+    text-align: center;
 }
 
 .login-signup-container {
