@@ -63,6 +63,10 @@ a:visited {
     color: yellow
 }
 
+.saved-container {
+    background-color: orange;
+    width: 500px
+}
 
 a:link {
     color: #0074D9

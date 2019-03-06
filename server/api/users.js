@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const passport = require("passport");
-const { User } = require('../db/models');
+const { User, Article} = require('../db/models');
 module.exports = router;
 
 function isLoggedIn(req, res, next){
@@ -53,7 +52,11 @@ router.post('/signup', async (req, res, next) => {
 
 router.get('/all/:id', async (req, res, next) => {
 	try {
-		const user = await User.findByPk(req.params.id);
+		const user = await User.findByPk(req.params.id, {
+      include: [{
+        model: Article,
+      }]
+    });
 		res.json(user);
 	} catch (err) {
 		next(err);
@@ -63,8 +66,8 @@ router.get('/all/:id', async (req, res, next) => {
 router.post('/logout', (req, res) => {
     req.logout()
     req.session.destroy()
-    // res.redirect('/login')
-    res.json('successfully logged out')
+    res.redirect('/')
+    // res.json('successfully logged out')
   })
 
   router.get('/me', (req, res) => {

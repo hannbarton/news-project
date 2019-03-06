@@ -30,7 +30,7 @@ class EachArticle extends React.Component {
 			source: this.props.children.name,
 			urlToImage: this.props.urlToImage,
 
-		}, ()=> console.log(this.state, this.props))
+		}, () => console.log(this.state, this.props))
 
 		const article = {
 			title: this.state.title,
@@ -47,7 +47,6 @@ class EachArticle extends React.Component {
 		}).catch(function(error) {
 			alert('error in saving article')
 		})
-
 	}
 
 	render() {

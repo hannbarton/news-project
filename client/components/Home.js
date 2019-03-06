@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import Welcome from "./Welcome";
 import EachArticle from './EachArticle'
+import Saved from './Saved'
 
 class Home extends React.Component {
 	constructor() {
@@ -119,6 +120,7 @@ class Home extends React.Component {
 		return (
 			<div className="home">
 				<Welcome />
+				<Saved/>
 				<br />
 				<br />
 				<br />
