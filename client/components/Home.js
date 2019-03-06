@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Welcome from "./Welcome";
+import EachArticle from './EachArticle'
 
 class Home extends React.Component {
 	constructor() {
@@ -15,13 +16,41 @@ class Home extends React.Component {
 			wiredOpen: false,
 			googleOpen: false,
 			natgeoOpen: false,
-			newsciOpen: false
+			newsciOpen: false,
 		};
 		this.handleOpenBuzzfeed = this.handleOpenBuzzfeed.bind(this);
 		this.handleOpenWired = this.handleOpenWired.bind(this);
 		this.handleOpenGoogle = this.handleOpenGoogle.bind(this);
 		this.handleOpenNatgeo = this.handleOpenNatgeo.bind(this);
 		this.handleOpenNewsci = this.handleOpenNewsci.bind(this);
+		this.handAddArticle = this.handleAddArticle.bind(this)
+	}
+
+	handleAddArticle(event) {
+		event.preventDefault()
+
+		console.log('event',event)
+		// const article = {
+		// 	title: '',
+		// 	source: '',
+		// 	link: '',
+		// 	userId: ''
+		// }
+
+		// this.setState({
+		// 	article: {
+		// 		title: '',
+		// 		source: '',
+		// 		link: '',
+		// 		userId: ''
+		// 	}
+		// })
+
+		// console.log('added', article)
+		// axios.post('/api/articles/saved', article)
+		// .then(res => this.setState({ article: res.data }))
+		// .catch(err => console.log(err));
+
 	}
 
 	handleOpenBuzzfeed() {
@@ -129,13 +158,12 @@ class Home extends React.Component {
 					<br />
 					{this.state.buzzfeed.map((item, key) => {
 						return (
-							<div>
-								<button type='submit' className='add-button'>+</button>
-								<a href={item.url} key={key}>
-								{` ${item.title}`}
-									<br />
-								</a>
-							</div>
+							<EachArticle
+							key={key}
+							title={item.title}
+							url={item.url}
+							>{item.source}
+							</EachArticle>
 						);
 					})}
 				</div>
@@ -154,7 +182,11 @@ class Home extends React.Component {
 					{this.state.wired.map((item, key) => {
 						return (
 							<div>
-								<button type='submit' className='add-button'>+</button>
+								<button type='submit' onClick={((e) => { e.persist(); this.setState({
+									addArticletitle: ''
+
+										}); console.log(this.props, this.state);
+										})} className='add-button'>+</button>
 								<a href={item.url} key={key}>
 								{` ${item.title}`}
 									<br />
@@ -178,7 +210,7 @@ class Home extends React.Component {
 					{this.state.google.map((item, key) => {
 						return (
 							<div>
-							<button type='submit' className='add-button'>+</button>
+							<button type='submit' onClick={this.handleAddArticle} className='add-button'>+</button>
 								<a href={item.url} key={key}>
 								{` ${item.title}`}
 									<br />
@@ -202,7 +234,7 @@ class Home extends React.Component {
 					{this.state.natgeo.map((item, key) => {
 						return (
 							<div>
-							<button type='submit' className='add-button'>+</button>
+							<button type='submit' onClick={this.handleAddArticle} className='add-button'>+</button>
 								<a href={item.url} key={key}>
 								{` ${item.title}`}
 									<br />
@@ -226,7 +258,7 @@ class Home extends React.Component {
 					{this.state.newsci.map((item, key) => {
 						return (
 							<div>
-							<button type='submit' className='add-button'>+</button>
+							<button type='submit' onClick={this.handleAddArticle} className='add-button'>+</button>
 								<a href={item.url} key={key}>
 									{` ${item.title}`}
 									<br />
