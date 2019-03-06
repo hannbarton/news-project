@@ -24,17 +24,6 @@ class Home extends React.Component {
 		this.handleOpenNewsci = this.handleOpenNewsci.bind(this)
 	}
 
-	// componentDidMount() {
-	// 	this.getData();
-	// }
-
-	// async getData() {
-	// 	axios
-	// 		.get("/api/articles/newsci")
-	// 		.then(res => this.setState({ newsci: res.data }))
-	// 		.catch(err => console.log(err));
-	// }
-
 	handleOpenBuzzfeed() {
 		if (!this.state.buzzfeedOpen) {
 			this.setState({
@@ -133,66 +122,71 @@ class Home extends React.Component {
                 <br/>
                 <br/>
 				<div className='article-container'>
-				<button type='submit' onClick={this.handleOpenBuzzfeed}>Buzzfeed</button>
+				<div className='center-button'>
+				<button type='submit' className='open-button' onClick={this.handleOpenBuzzfeed}>Buzzfeed</button>
+				</div>
 				<br />
 				{this.state.buzzfeed.map((item, key) => {
 					return (
-						<a href={item.url} key={key}>
+						<li> <a href={item.url} key={key}>
 							{item.title}
-							<br />
-						</a>
+							<br /></a>
+						</li>
 					);
 				})}
 				</div>
 				<br />
 				<div className='article-container'>
-				<button type='submit' onClick={this.handleOpenWired}>Wired</button>
+				<button type='submit' className='open-button' onClick={this.handleOpenWired}>Wired</button>
 				<br />
 				{this.state.wired.map((item, key) => {
 					return (
-						<a href={item.url} key={key}>
+						<li><a href={item.url} key={key}>
 							{item.title}
 							<br />
 						</a>
+						</li>
 					);
 				})}
 				</div>
 				<br />
 				<div className='article-container'>
-				<button type='submit' onClick={this.handleOpenGoogle}>Google</button>
+				<button type='submit' className='open-button' onClick={this.handleOpenGoogle}>Google</button>
 				<br />
 				{this.state.google.map((item, key) => {
 					return (
-						<a href={item.url} key={key}>
+						<li><a href={item.url} key={key}>
 							{item.title}
 							<br />
-						</a>
+						</a></li>
 					);
 				})}
 				</div>
 				<br />
 				<div className='article-container'>
-				<button type='submit' onClick={this.handleOpenNatgeo}>National Geographic</button>
+				<button type='submit' className='open-button' onClick={this.handleOpenNatgeo}>National Geographic</button>
 				<br />
 				{this.state.natgeo.map((item, key) => {
 					return (
-						<a href={item.url} key={key}>
+						<li><a href={item.url} key={key}>
 							{item.title}
 							<br />
 						</a>
+						</li>
 					);
 				})}
 				</div>
 				<br />
 				<div className='article-container'>
-				<button type='submit' onClick={this.handleOpenNewsci}>New Scientist</button>
+				<button type='submit' className='open-button' onClick={this.handleOpenNewsci}>New Scientist</button>
 				<br />
 				{this.state.newsci.map((item, key) => {
 					return (
-						<a href={item.url} key={key}>
+						<li><a href={item.url} key={key}>
 							{item.title}
 							<br />
 						</a>
+						</li>
 					);
 				})}
 				</div>

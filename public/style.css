@@ -19,7 +19,10 @@ a {
 }
 
 .article-container {
-    background-color: lightcyan
+    background-color: lightcyan;
+    width: 500px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h2 {
@@ -41,7 +44,26 @@ span {
 }
 
 .home {
+
+}
+
+.center-button {
     text-align: center;
+}
+
+.open-button {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    margin: 10px;
+	border: 1px solid orange;
+	background-color: white;
+	color: orange;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
 }
 
 .login-signup-container {
