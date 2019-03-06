@@ -2,23 +2,23 @@
 This is a simple web application which fetches news articles from an external api vendor and displays them
 
 ### My Application Can:
-[x] Sign up and login as a user using local-passport
-[x] Fetch news articles via news api
-[x] Display these news sources as buttons and clicking on them shows the top 10 articles for that news source
-[ ] The user is able to save articles and there is a button which allows the user to look at the saved articles (Bonus-Points)
+[x] Sign up and login as a user using local-passport.
+[x] Fetch news articles via news api.
+[x] Display these news sources as buttons and clicking on them shows the top 10 articles for that news source.
+[ ] The user is able to save articles and there is a button which allows the user to look at the saved articles (Bonus-Points).
 
 There are three views in my application:
 1. Login screen.
 2. Home screen with links to the news sources and link to view saved articles.
-3. Detail Screen which shows either ten news articles by source or saved articles
+3. Detail Screen which shows either ten news articles by source or saved articles.
 
 ### Tech Stack Used:
 1. Backend - Node.js
-2. Frontend - React
-3. Database - postgreSQL
+2. Frontend - React.
+3. Database - postgreSQL.
 
 ## How to get my application running:
-1.) Register with news api to generate an api-key and get access to thier api. https://newsapi.org/
-2.) Save the api key within your secrets.js folder in the root of the application and save it as `process.env.NEWS_API_KEY`
-3.) Create a db called `news-project` in postgreSQL
-4.) `npm run start-dev`
+1. Register with news api to generate an api-key and get access to thier api. https://newsapi.org/
+2. Save the api key within your secrets.js folder in the root of the application and save it as `process.env.NEWS_API_KEY`
+3. Create a db called `news-project` in postgreSQL
+4. `npm run start-dev`
