@@ -64,8 +64,22 @@ a:visited {
 }
 
 .saved-container {
+    font-size: 10pt;
     background-color: orange;
-    width: 500px
+    width: 500px;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    color: white;
+    padding: 0em 1em 2em 1em;
+}
+
+h5 {
+    font-size: 28pt;
+    margin-bottom: 1em;
 }
 
 a:link {

@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios'
 
 class Saved extends React.Component {
 	constructor() {
@@ -33,13 +34,16 @@ class Saved extends React.Component {
 	render() {
 		return (
 			<div className="saved-container">
+        <h5>{'My Saved Articles:'}</h5>
 				{this.state.articles.map(each => {
 					return (
 						<div>
+                            {'[o]'}
 							<a href={each.url}>
 								{` ${each.title}`}
 								<br />
 							</a>
+
 						</div>
 					);
 				})}
