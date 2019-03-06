@@ -21,11 +21,6 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
-// router.post('/login', passport.authenticate('local-login', {
-//     successRedirect : '/home',
-//     failureRedirect : '/login',
-//     failureFlash : true
-// }));
 router.post('/login', async (req, res, next) => {
     try {
       const user = await User.findOne({where: {email: req.body.email}})
@@ -43,21 +38,6 @@ router.post('/login', async (req, res, next) => {
     }
   })
 
-// router.get('/login', (req, res) => {
-//     res.render('this is working')
-//   })
-
-// router.post('/signup', passport.authenticate('local-signup',  async (req, res, next) => {
-// 	try {
-//         console.log('success')
-// 		await User.create(req.body);
-// 		const redir = { redirect: '/home' };
-// 		res.json(redir);
-// 	} catch (err) {
-// 		console.error(err);
-// 	}
-// }));
-
 router.post('/signup', async (req, res, next) => {
     try {
       const user = await User.create(req.body)
@@ -71,15 +51,9 @@ router.post('/signup', async (req, res, next) => {
     }
   })
 
-// router.post('/signup', passport.authenticate('local-signup', {
-//     successRedirect : '/home',
-//     failureRedirect : '/signup',
-//     failureFlash : true
-// }));
-
-router.get('/:id', async (req, res, next) => {
+router.get('/all/:id', async (req, res, next) => {
 	try {
-		const user = await User.findOne(req.body);
+		const user = await User.findByPk(req.params.id);
 		res.json(user);
 	} catch (err) {
 		next(err);
@@ -93,5 +67,5 @@ router.post('/logout', (req, res) => {
   })
 
   router.get('/me', (req, res) => {
-    res.json(req.user)
+    res.json(req.user || {})
   })

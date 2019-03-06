@@ -12,7 +12,7 @@ class Navbar extends React.Component {
     axios.post('/api/users/logout')
     .then(res => {
       console.log(res.data)
-      window.location = '/'
+      window.location = '/login'
     })
 
   }
