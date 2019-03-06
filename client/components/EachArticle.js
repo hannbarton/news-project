@@ -12,10 +12,11 @@ class EachArticle extends React.Component {
 			urlToImage: '',
 			userId: null
 		}
-		this.handleAddArticle = this.handleAddArticle.bind(this)
+		this.handleAddArticle = this.handleAddArticle.bind(this);
 	}
 
 	async handleAddArticle(event) {
+		const isEnabled = 'true'
 
 		await axios.get('/api/users/me')
 		.then(res => this.setState({
@@ -49,12 +50,11 @@ class EachArticle extends React.Component {
 
 	}
 
-
 	render() {
 		const {url, title} = this.props;
 		return (
 			<div>
-			<button type='submit' value={title} name="title" onClick={this.handleAddArticle} className='add-button'>+</button>
+			<button type='submit' disabled={this.state.userId} value={title} name="title" onClick={this.handleAddArticle} className='add-button'>+</button>
 			<a href={url}>
 			{` ${title}`}
 				<br />
