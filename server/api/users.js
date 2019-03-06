@@ -63,7 +63,15 @@ router.get('/all/:id', async (req, res, next) => {
 router.post('/logout', (req, res) => {
     req.logout()
     req.session.destroy()
-    res.redirect('/login')
+    // res.redirect('/login')
+    res.json('successfully logged out')
+  })
+
+  router.get('/logout', (req, res) => {
+    req.logout()
+    req.session.destroy()
+    // res.redirect('/login')
+    res.send('successfully logged out', req.user)
   })
 
   router.get('/me', (req, res) => {

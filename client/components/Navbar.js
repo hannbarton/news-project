@@ -4,15 +4,18 @@ import axios from 'axios';
 class Navbar extends React.Component {
   constructor() {
     super()
+    this.state = {
+      user: {}
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit() {
     axios.post('/api/users/logout')
     .then(res => {
-      console.log(res.data)
-      window.location = '/login'
+      console.log('res', res.data)
+      alert('successfully logged out')
+      window.location = '/'
     })
 
   }
@@ -23,7 +26,7 @@ class Navbar extends React.Component {
       <nav>
           <div>
             {/* <Link to="/home">Home</Link> */}
-            <button onSubmit={this.handleSubmit}>
+            <button type='submit' onClick={this.handleSubmit}>
               Logout
             </button>
           </div>
