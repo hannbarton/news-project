@@ -137,7 +137,8 @@ class Home extends React.Component {
 				</div>
 				<br />
 				<div className='article-container'>
-				<button type='submit' className='open-button' onClick={this.handleOpenWired}>Wired</button>
+				<div className='center-button'>
+				<button type='submit' className='open-button' onClick={this.handleOpenWired}>Wired</button></div>
 				<br />
 				{this.state.wired.map((item, key) => {
 					return (
@@ -151,7 +152,8 @@ class Home extends React.Component {
 				</div>
 				<br />
 				<div className='article-container'>
-				<button type='submit' className='open-button' onClick={this.handleOpenGoogle}>Google</button>
+				<div className='center-button'>
+				<button type='submit' className='open-button' onClick={this.handleOpenGoogle}>Google</button></div>
 				<br />
 				{this.state.google.map((item, key) => {
 					return (
@@ -164,7 +166,8 @@ class Home extends React.Component {
 				</div>
 				<br />
 				<div className='article-container'>
-				<button type='submit' className='open-button' onClick={this.handleOpenNatgeo}>National Geographic</button>
+				<div className='center-button'>
+				<button type='submit' className='open-button' onClick={this.handleOpenNatgeo}>National Geographic</button></div>
 				<br />
 				{this.state.natgeo.map((item, key) => {
 					return (
@@ -178,7 +181,8 @@ class Home extends React.Component {
 				</div>
 				<br />
 				<div className='article-container'>
-				<button type='submit' className='open-button' onClick={this.handleOpenNewsci}>New Scientist</button>
+				<div className='center-button'>
+				<button type='submit' className='open-button' onClick={this.handleOpenNewsci}>New Scientist</button></div>
 				<br />
 				{this.state.newsci.map((item, key) => {
 					return (

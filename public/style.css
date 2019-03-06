@@ -19,10 +19,14 @@ a {
 }
 
 .article-container {
-    background-color: lightcyan;
+    background-color: rgb(165, 194, 212);
     width: 500px;
     text-align: left;
     font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 1em;
+    margin: 1em;
 }
 
 h2 {
@@ -44,11 +48,24 @@ span {
 }
 
 .home {
-
+    text-align: center;
 }
 
 .center-button {
     text-align: center;
+}
+
+a:link:hover {
+    color: yellow
+}
+
+a:visited {
+    color: yellow
+}
+
+
+a:link {
+    color: #0074D9
 }
 
 .open-button {
@@ -60,7 +77,7 @@ span {
 	color: orange;
 	font-size: 12px;
 	font-weight: bold;
-	padding: 12px 45px;
+    padding: 12px 15px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
