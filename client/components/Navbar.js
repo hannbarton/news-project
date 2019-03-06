@@ -25,7 +25,6 @@ class Navbar extends React.Component {
       <div>
       <nav>
           <div>
-            {/* <Link to="/home">Home</Link> */}
             <button type='submit' onClick={this.handleSubmit}>
               Logout
             </button>

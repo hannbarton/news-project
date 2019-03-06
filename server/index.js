@@ -6,7 +6,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("./db");
-const User = require("./db/models/user");
 const sessionStore = new SequelizeStore({ db });
 const PORT = 3000;
 const app = express();
@@ -81,14 +80,6 @@ passport.use(
 							false,
 							req.flash("signupMessage", "That email is already taken.")
 						);
-					} else {
-						// if there is no user with that email
-						// create the user
-
-						db.models.user.create({ where: {
-							email: email, password: password }})
-							.then(([user]) => done(null, user))
-							.catch(done);
 					}
 				});
 			});
@@ -151,7 +142,6 @@ const createApp = () => {
 const syncDb = () => db.sync();
 
 const startListening = () => {
-	// start listening (and create a 'server' object representing our server)
 	app.listen(PORT, () => console.log(`Mixing it up on port ${PORT}`));
 };
 

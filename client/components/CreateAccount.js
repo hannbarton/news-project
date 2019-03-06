@@ -55,7 +55,8 @@ class CreateAccount extends React.Component {
 					<h1>Hello, Reader!</h1>
 					<h5>
 						<span>Enter your personal details</span>
-						<span>and create an account</span>
+						<span>and create an account to</span>
+						<span>start readings news articles</span>
 					</h5>
 
 					<input
