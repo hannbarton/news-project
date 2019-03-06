@@ -2,10 +2,10 @@
 This is a simple web application which fetches news articles from an external api vendor and displays them
 
 ### My Application Can:
-[x] Sign up and login as a user using local-passport.
-[x] Fetch news articles via news api.
-[x] Display these news sources as buttons and clicking on them shows the top 10 articles for that news source.
-[ ] The user is able to save articles and there is a button which allows the user to look at the saved articles (Bonus-Points).
+1. [x] Sign up and login as a user using local-passport.
+2. [x] Fetch news articles via news api.
+3. [x] Display these news sources as buttons and clicking on them shows the top 10 articles for that news source.
+4. [ ] The user is able to save articles and there is a button which allows the user to look at the saved articles (Bonus-Points).
 
 There are three views in my application:
 1. Login screen.
