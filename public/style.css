@@ -24,9 +24,9 @@ a {
     text-align: left;
     font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
-    display: inline-block;
-    padding: 1em;
-    margin: 1em;
+    /* display: inline-block; */
+    /* padding: 1em; */
+    /* margin: 0em 1em 1em 0em; */
 }
 
 h2 {
@@ -64,17 +64,37 @@ a:visited {
 }
 
 .saved-container {
+	justify-content: center;
+	align-items: center;
+	/* flex-direction: column; */
+    font-family: 'Montserrat', sans-serif;
+    display: table-cell;
+}
+
+.saved {
     font-size: 10pt;
     background-color: orange;
     width: 500px;
-    display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 5px;
     color: white;
     padding: 0em 1em 2em 1em;
+    color: white;
+    padding: .1em 1em 2em 1em;
+    border-radius: 5px;
+}
+
+.off-center-articles {
+    display: table-cell;
+    justify-content: center;
+	align-items: center;
+}
+
+.saved-article-container {
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+    text-align: center;
+    display: table;
 }
 
 h5 {

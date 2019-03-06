@@ -120,10 +120,12 @@ class Home extends React.Component {
 		return (
 			<div className="home">
 				<Welcome />
+				<div className='saved-article-container'>
 				<Saved/>
 				<br />
 				<br />
 				<br />
+				<div className='off-center-articles'></div>
 				<div className="article-container">
 					<div className="center-button">
 						<button
@@ -238,6 +240,7 @@ class Home extends React.Component {
 							</EachArticle>
 						);
 					})}
+				</div>
 				</div>
 			</div>
 		);
