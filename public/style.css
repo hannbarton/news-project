@@ -1,8 +1,3 @@
-@font-face {
-	font-family: "Futura medium";
-	src: url(./futura/futura\medium\bt.ttf);
-}
-
 a {
     text-decoration: none;
     outline: none;
@@ -18,15 +13,26 @@ a {
 	margin: 0px 50px;
 }
 
+.heading {
+    background-color: rgb(165, 194, 212);
+    width: 500px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    font-size: 32pt;
+    display: inline-block;
+    padding: 0 .3em 0 .3em;
+}
+
 .article-container {
     background-color: rgb(165, 194, 212);
     width: 500px;
     text-align: left;
     font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
-    /* display: inline-block; */
-    /* padding: 1em; */
-    /* margin: 0em 1em 1em 0em; */
+    font-size: 10pt;
+    display: inline-block;
+    margin: .5em;
+    padding: .1em 1em 2em 1em;
 }
 
 h2 {
@@ -40,15 +46,23 @@ h1 {
 
 h5 {
     color: white;
+    font-size: 28pt;
+    margin-bottom: 1em;
+}
+
+h6 {
     font-size: 12pt;
+    text-align: center;
+    color: white
+}
+
+p {
+    font-size: 12pt;
+    text-align: center
 }
 
 span {
     display: block;
-}
-
-.home {
-    text-align: center;
 }
 
 .center-button {
@@ -65,8 +79,6 @@ a:visited {
 
 .saved-container {
 	justify-content: center;
-	align-items: center;
-	/* flex-direction: column; */
     font-family: 'Montserrat', sans-serif;
     display: table-cell;
 }
@@ -76,30 +88,28 @@ a:visited {
     background-color: orange;
     width: 500px;
     color: white;
-    padding: 0em 1em 2em 1em;
-    color: white;
     padding: .1em 1em 2em 1em;
     border-radius: 5px;
 }
 
-.off-center-articles {
-    display: table-cell;
-    justify-content: center;
-	align-items: center;
+h4 {
+    color: white;
+    font-size: 32pt;
+    padding: 0em .1em 0em .1em;
 }
 
 .saved-article-container {
-    display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
     text-align: center;
     display: table;
+    margin: 0 auto;
+    padding-top: 1em;
 }
 
-h5 {
-    font-size: 28pt;
-    margin-bottom: 1em;
+article {
+    font-size: 10pt;
+    width: 500px;
+    color: white;
+    border-radius: 5px;
 }
 
 a:link {

@@ -53,11 +53,11 @@ class CreateAccount extends React.Component {
 			<div className="sign-up">
 				<form className="sign-up-form" onSubmit={this.handleSubmit}>
 					<h1>Hello, Reader!</h1>
-					<h5>
+					<h6>
 						<span>Enter your personal details</span>
 						<span>and create an account to</span>
 						<span>start readings news articles</span>
-					</h5>
+					</h6>
 
 					<input
 						type="text"

@@ -41,9 +41,9 @@ class Saved extends React.Component {
 			<div className="saved-container">
 				<div className="saved">
 					<h5>{"My Saved Articles:"}</h5>
-					{this.state.articles.map(each => {
+					{this.state.articles.map((each, key) => {
 						return (
-							<div>
+							<div key={key}>
 								{"[o]"}
 								<a href={each.url}>
 									{` ${each.title}`}

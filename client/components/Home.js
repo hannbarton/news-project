@@ -122,10 +122,10 @@ class Home extends React.Component {
 				<Welcome />
 				<div className='saved-article-container'>
 				<Saved/>
-				<br />
-				<br />
-				<br />
-				<div className='off-center-articles'></div>
+				<div className="heading">
+				<h5>{'Top Trending Articles:'}</h5>
+				</div>
+				<div className='article'>
 				<div className="article-container">
 					<div className="center-button">
 						<button
@@ -240,6 +240,7 @@ class Home extends React.Component {
 							</EachArticle>
 						);
 					})}
+				</div>
 				</div>
 				</div>
 			</div>

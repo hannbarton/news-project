@@ -25,7 +25,7 @@ class Welcome extends React.Component {
 
 	render() {
         return <div>
-        {`Welcome, ${this.state.firstName} ${this.state.lastName}! You are currently logged into ${this.state.email}`}
+        <h6>{`Welcome, ${this.state.firstName} ${this.state.lastName}! You are currently logged into ${this.state.email}`}</h6>
         </div>;
 	}
 }
