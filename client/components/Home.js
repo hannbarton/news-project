@@ -129,13 +129,13 @@ class Home extends React.Component {
 					<br />
 					{this.state.buzzfeed.map((item, key) => {
 						return (
-							<li>
-								{" "}
+							<div>
+								<button type='submit' className='add-button'>+</button>
 								<a href={item.url} key={key}>
-									{item.title}
+								{` ${item.title}`}
 									<br />
 								</a>
-							</li>
+							</div>
 						);
 					})}
 				</div>
@@ -153,12 +153,13 @@ class Home extends React.Component {
 					<br />
 					{this.state.wired.map((item, key) => {
 						return (
-							<li>
+							<div>
+								<button type='submit' className='add-button'>+</button>
 								<a href={item.url} key={key}>
-									{item.title}
+								{` ${item.title}`}
 									<br />
 								</a>
-							</li>
+							</div>
 						);
 					})}
 				</div>
@@ -176,12 +177,13 @@ class Home extends React.Component {
 					<br />
 					{this.state.google.map((item, key) => {
 						return (
-							<li>
+							<div>
+							<button type='submit' className='add-button'>+</button>
 								<a href={item.url} key={key}>
-									{item.title}
+								{` ${item.title}`}
 									<br />
 								</a>
-							</li>
+							</div>
 						);
 					})}
 				</div>
@@ -199,12 +201,13 @@ class Home extends React.Component {
 					<br />
 					{this.state.natgeo.map((item, key) => {
 						return (
-							<li>
+							<div>
+							<button type='submit' className='add-button'>+</button>
 								<a href={item.url} key={key}>
-									{item.title}
+								{` ${item.title}`}
 									<br />
 								</a>
-							</li>
+							</div>
 						);
 					})}
 				</div>
@@ -222,12 +225,13 @@ class Home extends React.Component {
 					<br />
 					{this.state.newsci.map((item, key) => {
 						return (
-							<li>
+							<div>
+							<button type='submit' className='add-button'>+</button>
 								<a href={item.url} key={key}>
-									{item.title}
+									{` ${item.title}`}
 									<br />
 								</a>
-							</li>
+							</div>
 						);
 					})}
 				</div>

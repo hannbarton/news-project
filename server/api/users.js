@@ -67,13 +67,6 @@ router.post('/logout', (req, res) => {
     res.json('successfully logged out')
   })
 
-  router.get('/logout', (req, res) => {
-    req.logout()
-    req.session.destroy()
-    // res.redirect('/login')
-    res.send('successfully logged out', req.user)
-  })
-
   router.get('/me', (req, res) => {
     res.json(req.user || {})
   })
