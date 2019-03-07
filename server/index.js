@@ -151,7 +151,7 @@ const createApp = () => {
 	});
 };
 
-const syncDb = () => db.sync({force: true});
+const syncDb = () => db.sync();
 
 const startListening = () => {
 	app.listen(PORT, () => console.log(`Mixing it up on port ${PORT}`));

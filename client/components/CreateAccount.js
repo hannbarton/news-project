@@ -42,7 +42,8 @@ class CreateAccount extends React.Component {
 					window.location = '/home';
 				})
 				.catch(function(error) {
-					window.location = "/signup";
+					alert('email already taken; try again')
+					window.location = "/";
 				})
 		}
 
