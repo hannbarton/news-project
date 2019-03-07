@@ -7,7 +7,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("./db");
 const sessionStore = new SequelizeStore({ db });
-const PORT = 3000;
+const PORT = process.env.PORT || 3000
 const app = express();
 const flash = require("connect-flash");
 
