@@ -17,7 +17,6 @@ class Navbar extends React.Component {
       alert('successfully logged out')
       window.location = '/'
     })
-
   }
 
   render() {
@@ -25,12 +24,11 @@ class Navbar extends React.Component {
       <div>
       <nav>
           <div>
-            <button type='submit' onClick={this.handleSubmit}>
+            <button type='submit' className='logout' onClick={this.handleSubmit}>
               Logout
             </button>
           </div>
       </nav>
-      <hr />
     </div>
     )
   }

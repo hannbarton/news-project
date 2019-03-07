@@ -38,6 +38,7 @@ class Saved extends React.Component {
 			<div className="saved-container">
 				<div className="saved">
 					<h5>{"My Saved Articles:"}</h5>
+					<div className="saved-inner">
 					{this.props.articles && this.props.articles.map((each, key) => {
 						return (
 							<div className="saved-mini-container" key={key}>
@@ -49,6 +50,7 @@ class Saved extends React.Component {
 							</div>
 						);
 					})}
+					</div>
 				</div>
 			</div>
 		);

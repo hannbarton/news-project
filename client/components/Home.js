@@ -3,6 +3,7 @@ import axios from "axios";
 import Welcome from "./Welcome";
 import EachArticle from './EachArticle'
 import Saved from './Saved'
+import Navbar from './Navbar'
 
 class Home extends React.Component {
 	constructor() {
@@ -24,7 +25,6 @@ class Home extends React.Component {
 		this.handleOpenGoogle = this.handleOpenGoogle.bind(this);
 		this.handleOpenNatgeo = this.handleOpenNatgeo.bind(this);
 		this.handleOpenNewsci = this.handleOpenNewsci.bind(this);
-		this.handleAddArticle = this.handleAddArticle.bind(this)
 	}
 
 	handleOpenBuzzfeed() {
@@ -112,12 +112,10 @@ class Home extends React.Component {
 		}
 	}
 
-	handleAddArticle(event) {
-		console.log('event', event.target)
-	}
-
 	render() {
 		return (
+			<div>
+				<Navbar/>
 			<div className="home">
 				<Welcome />
 				<div className='saved-article-container'>
@@ -243,6 +241,7 @@ class Home extends React.Component {
 				</div>
 				</div>
 				</div>
+			</div>
 			</div>
 		);
 	}
