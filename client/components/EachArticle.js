@@ -15,8 +15,7 @@ class EachArticle extends React.Component {
 		this.handleAddArticle = this.handleAddArticle.bind(this);
 	}
 
-	async handleAddArticle(event) {
-		const isEnabled = 'true'
+	async handleAddArticle() {
 
 		await axios.get('/api/users/me')
 		.then(res => this.setState({
@@ -30,7 +29,7 @@ class EachArticle extends React.Component {
 			source: this.props.children.name,
 			urlToImage: this.props.urlToImage,
 
-		}, () => console.log(this.state, this.props))
+		}, () => console.log('added'))
 
 		const article = {
 			title: this.state.title,
@@ -43,7 +42,7 @@ class EachArticle extends React.Component {
 		await axios.post('/api/articles/saved', article)
 		.then(res => {
 			console.log(res.data)
-			alert('added article to saved files')
+			// alert('added article to saved files')
 		}).catch(function(error) {
 			alert('error in saving article')
 		})

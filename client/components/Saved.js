@@ -1,5 +1,8 @@
 import React from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { fetchArticles } from "../reducer";
+import { withRouter } from "react-router-dom";
 
 class Saved extends React.Component {
 	constructor() {
@@ -8,33 +11,47 @@ class Saved extends React.Component {
 		this.state = {
 			userId: null,
 			articles: []
-        };
-        this.meHandler = this.meHandler.bind(this)
+		};
+		this.meHandler = this.meHandler.bind(this);
+		this.updateHandler = this.updateHandler.bind(this);
 	}
 
-	componentDidMount() {
-        this.meHandler();
-    }
+	async componentDidMount() {
+		await this.meHandler();
+		await this.updateHandler();
+		console.log("this is the state of articles", this.state);
+	}
 
-    async meHandler() {
-        await axios
-        .get("/api/users/me")
-        .then(res =>
-            this.setState({
-                userId: +res.data.id
-            })
-        )
-        .catch(err => console.log(err));
+	componentDidUpdate() {
+		console.log("state", this.state);
+	}
 
-        axios
-        .get(`/api/users/all/${this.state.userId}`)
-        .then(res =>
-            this.setState({
-                articles: res.data.articles
-            })
-        )
-        .catch(err => console.log(err));
-    }
+	async meHandler() {
+		await axios
+			.get("/api/users/me")
+			.then(
+				res =>
+					this.setState({
+						userId: +res.data.id
+					}),
+				() => console.log(this.state)
+			)
+			.catch(err => console.log(err));
+	}
+
+	async updateHandler() {
+		await axios
+			.get(`/api/users/all/${this.state.userId}`)
+			.then(res => {
+				console.log("res", res.data);
+
+				const articles = res.data.articles;
+				this.setState({
+					articles: articles
+				});
+			})
+			.catch(err => console.log(err));
+	}
 
 	render() {
 		return (
@@ -43,7 +60,7 @@ class Saved extends React.Component {
 					<h5>{"My Saved Articles:"}</h5>
 					{this.state.articles.map((each, key) => {
 						return (
-							<div key={key}>
+							<div className="saved-mini-container" key={key}>
 								{"[o]"}
 								<a href={each.url}>
 									{` ${each.title}`}
@@ -58,4 +75,17 @@ class Saved extends React.Component {
 	}
 }
 
-export default Saved;
+const mapState = state => ({
+	articles: state.articles,
+	userId: state.userId
+});
+
+const mapDispatch = dispatch => ({
+	fetchArticles: (userId) => dispatch(fetchCampuses(userId)),
+});
+
+export default withRouter(
+	connect(
+		mapState,
+		mapDispatch
+	)(Saved));

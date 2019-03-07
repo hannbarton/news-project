@@ -50,6 +50,10 @@ h5 {
     margin-bottom: 1em;
 }
 
+.saved-mini-container {
+    text-align: left
+}
+
 h6 {
     font-size: 12pt;
     text-align: center;

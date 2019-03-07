@@ -19,13 +19,13 @@ class Welcome extends React.Component {
 				lastName: res.data.lastName,
 				email: res.data.email
 			});
-			console.log(res.data);
+			// console.log(res.data);
 		});
 	}
 
 	render() {
         return <div>
-        <h6>{`Welcome, ${this.state.firstName} ${this.state.lastName}! You are currently logged into ${this.state.email}`}</h6>
+        <p>{`Welcome, ${this.state.firstName} ${this.state.lastName}! You are currently logged into ${this.state.email}`}</p>
         </div>;
 	}
 }
