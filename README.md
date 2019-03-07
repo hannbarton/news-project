@@ -1,5 +1,5 @@
 # News Website
-This is a simple web application which fetches news articles from an external api vendor and displays them
+This is a simple web application which fetches news articles from an external api vendor and displays them. This application was created using my own boilerplate located here: https://github.com/hannbarton/boiler
 
 ### My Application Can:
 1. [x] Sign up and login as a user
