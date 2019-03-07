@@ -1,15 +1,15 @@
 import React from "react";
-import {postArticle, setMainUser} from '../reducer'
+import { postArticle, setMainUser } from "../reducer";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 class EachArticle extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 
 		this.state = {
 			flag: false
-		}
+		};
 
 		this.handleAddArticle = this.handleAddArticle.bind(this);
 	}
@@ -21,26 +21,32 @@ class EachArticle extends React.Component {
 			source: this.props.source,
 			urlToImage: this.props.urlToImage,
 			userId: this.props.userId
-		}
-		this.props.postArticle(article)
+		};
+		this.props.postArticle(article);
 
-		this.setState({flag: true})
+		this.setState({ flag: true });
 	}
 
 	render() {
-
-		const {url, title} = this.props;
+		const { url, title } = this.props;
 		return (
 			<div>
-			<button type='submit' disabled={this.state.flag} onClick={this.handleAddArticle} className='add-button'>+</button>
-			<a href={url}>
-			{` ${title}`}
-				<br />
-			</a>
-		</div>
+				<button
+					type="submit"
+					disabled={this.state.flag}
+					onClick={this.handleAddArticle}
+					className="add-button"
+				>
+					+
+				</button>
+				<a href={url}>
+					{` ${title}`}
+					<br />
+				</a>
+			</div>
 		);
 	}
-};
+}
 
 const mapState = state => ({
 	articles: state.articles,
@@ -48,7 +54,7 @@ const mapState = state => ({
 });
 
 const mapDispatch = dispatch => ({
-	postArticle: (article) => dispatch(postArticle(article)),
+	postArticle: article => dispatch(postArticle(article)),
 	setMainUser: () => dispatch(setMainUser())
 });
 
@@ -56,4 +62,5 @@ export default withRouter(
 	connect(
 		mapState,
 		mapDispatch
-	)(EachArticle));
+	)(EachArticle)
+);

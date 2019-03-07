@@ -4,9 +4,6 @@ import axios from 'axios';
 class Navbar extends React.Component {
   constructor() {
     super()
-    this.state = {
-      user: {}
-    }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 

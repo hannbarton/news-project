@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
 import Welcome from "./Welcome";
-import EachArticle from './EachArticle'
-import Saved from './Saved'
-import Navbar from './Navbar'
+import EachArticle from "./EachArticle";
+import Saved from "./Saved";
+import Navbar from "./Navbar";
 
 class Home extends React.Component {
 	constructor() {
@@ -18,7 +18,7 @@ class Home extends React.Component {
 			wiredOpen: false,
 			googleOpen: false,
 			natgeoOpen: false,
-			newsciOpen: false,
+			newsciOpen: false
 		};
 		this.handleOpenBuzzfeed = this.handleOpenBuzzfeed.bind(this);
 		this.handleOpenWired = this.handleOpenWired.bind(this);
@@ -115,133 +115,122 @@ class Home extends React.Component {
 	render() {
 		return (
 			<div>
-				<Navbar/>
-			<div className="home">
-				<Welcome />
-				<div className='saved-article-container'>
-				<Saved/>
-				<div className="heading">
-				<h5>{'Top Trending Articles:'}</h5>
-				</div>
-				<div className='article'>
-				<div className="article-container">
-					<div className="center-button">
-						<button
-							type="submit"
-							className="open-button"
-							onClick={this.handleOpenBuzzfeed}
-						>
-							Buzzfeed
-						</button>
+				<Navbar />
+				<div className="home">
+					<Welcome />
+					<div className="saved-article-container">
+						<Saved />
+						<div className="heading">
+							<h5>{"Top Trending Articles:"}</h5>
+						</div>
+						<div className="article">
+							<div className="article-container">
+								<div className="center-button">
+									<button
+										type="submit"
+										className="open-button"
+										onClick={this.handleOpenBuzzfeed}
+									>
+										Buzzfeed
+									</button>
+								</div>
+								<br />
+								{this.state.buzzfeed.map((item, key) => {
+									return (
+										<EachArticle
+											key={key}
+											title={item.title}
+											url={item.url}
+											urlToImage={item.urlToImage}
+										>
+											{item.source}
+										</EachArticle>
+									);
+								})}
+							</div>
+							<br />
+							<div className="article-container">
+								<div className="center-button">
+									<button
+										type="submit"
+										className="open-button"
+										onClick={this.handleOpenWired}
+									>
+										Wired
+									</button>
+								</div>
+								<br />
+								{this.state.wired.map((item, key) => {
+									return (
+										<EachArticle key={key} title={item.title} url={item.url}>
+											{item.source}
+										</EachArticle>
+									);
+								})}
+							</div>
+							<br />
+							<div className="article-container">
+								<div className="center-button">
+									<button
+										type="submit"
+										className="open-button"
+										onClick={this.handleOpenGoogle}
+									>
+										Google
+									</button>
+								</div>
+								<br />
+								{this.state.google.map((item, key) => {
+									return (
+										<EachArticle key={key} title={item.title} url={item.url}>
+											{item.source}
+										</EachArticle>
+									);
+								})}
+							</div>
+							<br />
+							<div className="article-container">
+								<div className="center-button">
+									<button
+										type="submit"
+										className="open-button"
+										onClick={this.handleOpenNatgeo}
+									>
+										National Geographic
+									</button>
+								</div>
+								<br />
+								{this.state.natgeo.map((item, key) => {
+									return (
+										<EachArticle key={key} title={item.title} url={item.url}>
+											{item.source}
+										</EachArticle>
+									);
+								})}
+							</div>
+							<br />
+							<div className="article-container">
+								<div className="center-button">
+									<button
+										type="submit"
+										className="open-button"
+										onClick={this.handleOpenNewsci}
+									>
+										New Scientist
+									</button>
+								</div>
+								<br />
+								{this.state.newsci.map((item, key) => {
+									return (
+										<EachArticle key={key} title={item.title} url={item.url}>
+											{item.source}
+										</EachArticle>
+									);
+								})}
+							</div>
+						</div>
 					</div>
-					<br />
-					{this.state.buzzfeed.map((item, key) => {
-						return (
-							<EachArticle
-							key={key}
-							title={item.title}
-							url={item.url}
-							urlToImage={item.urlToImage}
-							>{item.source}
-							</EachArticle>
-						);
-					})}
 				</div>
-				<br />
-				<div className="article-container">
-					<div className="center-button">
-						<button
-							type="submit"
-							className="open-button"
-							onClick={this.handleOpenWired}
-						>
-							Wired
-						</button>
-					</div>
-					<br />
-					{this.state.wired.map((item, key) => {
-						return (
-							<EachArticle
-							key={key}
-							title={item.title}
-							url={item.url}
-							>{item.source}
-							</EachArticle>
-						);
-					})}
-				</div>
-				<br />
-				<div className="article-container">
-					<div className="center-button">
-						<button
-							type="submit"
-							className="open-button"
-							onClick={this.handleOpenGoogle}
-						>
-							Google
-						</button>
-					</div>
-					<br />
-					{this.state.google.map((item, key) => {
-						return (
-							<EachArticle
-							key={key}
-							title={item.title}
-							url={item.url}
-							>{item.source}
-							</EachArticle>
-						);
-					})}
-				</div>
-				<br />
-				<div className="article-container">
-					<div className="center-button">
-						<button
-							type="submit"
-							className="open-button"
-							onClick={this.handleOpenNatgeo}
-						>
-							National Geographic
-						</button>
-					</div>
-					<br />
-					{this.state.natgeo.map((item, key) => {
-						return (
-							<EachArticle
-							key={key}
-							title={item.title}
-							url={item.url}
-							>{item.source}
-							</EachArticle>
-						);
-					})}
-				</div>
-				<br />
-				<div className="article-container">
-					<div className="center-button">
-						<button
-							type="submit"
-							className="open-button"
-							onClick={this.handleOpenNewsci}
-						>
-							New Scientist
-						</button>
-					</div>
-					<br />
-					{this.state.newsci.map((item, key) => {
-						return (
-							<EachArticle
-							key={key}
-							title={item.title}
-							url={item.url}
-							>{item.source}
-							</EachArticle>
-						);
-					})}
-				</div>
-				</div>
-				</div>
-			</div>
 			</div>
 		);
 	}

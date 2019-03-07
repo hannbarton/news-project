@@ -30,23 +30,25 @@ class CreateAccount extends React.Component {
 			password: this.state.password
 		};
 
-		if (user.firstName === '' || user.lastName === '' || user.email ===
-		'' || user.password === '') {
-			alert('please fill out every line on the form before submitting')
-		}
-		else {
+		if (
+			user.firstName === "" ||
+			user.lastName === "" ||
+			user.email === "" ||
+			user.password === ""
+		) {
+			alert("please fill out every line on the form before submitting");
+		} else {
 			axios
 				.post("/api/users/signup", user)
 				.then(res => {
-					console.log(res)
-					window.location = '/home';
+					console.log(res);
+					window.location = "/home";
 				})
 				.catch(function(error) {
-					alert('email already taken; try again')
+					alert("email already taken; try again");
 					window.location = "/";
-				})
+				});
 		}
-
 	}
 
 	render() {

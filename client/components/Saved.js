@@ -6,18 +6,18 @@ import { withRouter } from "react-router-dom";
 
 class Saved extends React.Component {
 	constructor() {
-		super()
+		super();
 
 		this.state = {
 			userId: null
-		}
+		};
 
-		this.meHandler = this.meHandler.bind(this)
+		this.meHandler = this.meHandler.bind(this);
 	}
 	async componentDidMount() {
-		this.meHandler()
-		await this.props.setMainUser()
-		await this.props.fetchArticles(this.props.userId)
+		this.meHandler();
+		await this.props.setMainUser();
+		await this.props.fetchArticles(this.props.userId);
 	}
 
 	async meHandler() {
@@ -39,17 +39,18 @@ class Saved extends React.Component {
 				<div className="saved">
 					<h5>{"My Saved Articles:"}</h5>
 					<div className="saved-inner">
-					{this.props.articles && this.props.articles.map((each, key) => {
-						return (
-							<div className="saved-mini-container" key={key}>
-								{"[o]"}
-								<a href={each.url}>
-									{` ${each.title}`}
-									<br />
-								</a>
-							</div>
-						);
-					})}
+						{this.props.articles &&
+							this.props.articles.map((each, key) => {
+								return (
+									<div className="saved-mini-container" key={key}>
+										{"[o]"}
+										<a href={each.url}>
+											{` ${each.title}`}
+											<br />
+										</a>
+									</div>
+								);
+							})}
 					</div>
 				</div>
 			</div>
@@ -63,7 +64,7 @@ const mapState = state => ({
 });
 
 const mapDispatch = dispatch => ({
-	fetchArticles: (userId) => dispatch(fetchArticles(userId)),
+	fetchArticles: userId => dispatch(fetchArticles(userId)),
 	setMainUser: () => dispatch(setMainUser())
 });
 
@@ -71,4 +72,5 @@ export default withRouter(
 	connect(
 		mapState,
 		mapDispatch
-	)(Saved));
+	)(Saved)
+);
