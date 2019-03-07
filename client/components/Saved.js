@@ -33,20 +33,6 @@ class Saved extends React.Component {
 			.catch(err => console.log(err));
 	}
 
-	// async updateHandler() {
-	// 	await axios
-	// 		.get(`/api/users/all/${this.state.userId}`)
-	// 		.then(res => {
-	// 			console.log("res", res.data);
-
-	// 			const articles = res.data.articles;
-	// 			this.setState({
-	// 				articles: articles
-	// 			});
-	// 		})
-	// 		.catch(err => console.log(err));
-	// }
-
 	render() {
 		return (
 			<div className="saved-container">

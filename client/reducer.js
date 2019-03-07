@@ -47,7 +47,8 @@ export const postArticle = (article) => {
 			dispatch(addArticle(response.data.article));
 		}
 		catch (err) {
-			console.log(err)
+            console.log(err)
+            alert('article has already been added')
 		}
 	};
 };
