@@ -2,11 +2,13 @@
 This is a simple web application which fetches news articles from an external api vendor and displays them
 
 ### My Application Can:
-1. [x] Sign up and login as a user using local-passport.
-2. [x] Fetch news articles via news api.
-3. [x] Display these news sources as buttons and clicking on them shows the top 10 articles for that news source.
-4. [x] The user is able to save articles
-5. [ ] There is a button which allows the user to look at the saved articles (Bonus-Points).
+1. [x] Sign up and login as a user
+2. [x] Alert you if your email or password is incorrect
+3. [x] Alert you if you already have an account and you are trying to sign up again with the same email
+4. [x] Fetch news articles via news api.
+5. [x] Display these news sources as buttons and clicking on them shows the top 10 articles for that news source.
+6. [x] The user is able to save articles to their account
+7. [ ] There is a button which allows the user to look at the saved articles
 
 There are three views in my application:
 1. Login screen.
@@ -23,9 +25,3 @@ There are three views in my application:
 2. Save the api key within your secrets.js folder in the root of the application and save it as `process.env.NEWS_API_KEY`
 3. Create a db called `news-project` in postgreSQL
 4. `npm run start-dev`
-
-### My application will:
-1. alert you if your email or password is incorrect
-2. alert you if you already have an account and you are trying to sign up again with the same email
-3. allow you to login and logout
-4. allow you to save articles to your account

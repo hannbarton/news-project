@@ -61,8 +61,11 @@ h6 {
 }
 
 p {
-    font-size: 12pt;
-    text-align: center
+    font-size: 16pt;
+    text-align: center;
+    color: orange;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 
 span {
