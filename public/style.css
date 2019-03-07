@@ -47,13 +47,12 @@ h5 {
 h6 {
     font-size: 12pt;
     text-align: center;
-    color: white
+    color: black
 }
 
 .logout {
    position:absolute;
    right:10px;
-   /* float: right; */
    top: 5px;
    border-radius: 5px;
    margin: 5px;
@@ -182,9 +181,26 @@ a:link {
     height: 80vh;
     border-radius: 25px;
 }
-h6 {
-    color: black;
-    font-size:12pt
+
+.saved-button {
+    position:relative;
+    right:10px;
+    top: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid white;
+    background-color: rgb(165, 194, 212);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+nav {
+    color: black
 }
 
 .sign-up{

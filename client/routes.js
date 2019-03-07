@@ -4,6 +4,7 @@ import LoginForm from "./components/LoginForm";
 import CreateAccount from "./components/CreateAccount";
 import LoginSignup from './components/LoginSignup'
 import Home from './components/Home'
+import Saved from './components/Saved'
 
 class Routes extends Component {
 	render() {
@@ -12,6 +13,7 @@ class Routes extends Component {
 				<Switch>
 					<Route exact path="/" component={LoginSignup}/>
                     <Route path="/home" component={Home} />
+					<Route path='/saved' component={Saved}/>
 					<Route path="/login" component={LoginForm} />
 					<Route path="/signup" component={CreateAccount} />
 				</Switch>

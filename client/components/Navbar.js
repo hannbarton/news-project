@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 class Navbar extends React.Component {
   constructor() {
@@ -21,6 +22,9 @@ class Navbar extends React.Component {
       <div>
       <nav>
           <div>
+            <button type='submit' className='saved-button'><Link to='/saved'>Saved Articles</Link></button>
+
+
             <button type='submit' className='logout' onClick={this.handleSubmit}>
               Logout
             </button>
