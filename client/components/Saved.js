@@ -8,15 +8,15 @@ class Saved extends React.Component {
 	constructor() {
 		super()
 
-		this.state = {
-			userId: null
-		}
+		// this.state = {
+		// 	userId: null
+		// }
 
 		this.meHandler = this.meHandler.bind(this)
 	}
-	async componentDidMount() {
-		await this.meHandler()
-		await this.props.fetchArticles(this.state.userId)
+	componentDidMount() {
+		this.meHandler()
+		this.props.fetchArticles(this.props.userId)
 	}
 
 	async meHandler() {
@@ -51,7 +51,7 @@ class Saved extends React.Component {
 			<div className="saved-container">
 				<div className="saved">
 					<h5>{"My Saved Articles:"}</h5>
-					{this.props.articles.map((each, key) => {
+					{this.props.articles && this.props.articles.map((each, key) => {
 						return (
 							<div className="saved-mini-container" key={key}>
 								{"[o]"}

@@ -1,5 +1,8 @@
 import React from "react";
 import axios from "axios";
+import {postArticle, setMainUser} from '../reducer'
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class EachArticle extends React.Component {
 	constructor(props) {
@@ -10,9 +13,13 @@ class EachArticle extends React.Component {
 			url: '',
 			source: '',
 			urlToImage: '',
-			userId: null
+			userId: this.props.userId
 		}
 		this.handleAddArticle = this.handleAddArticle.bind(this);
+	}
+
+	componentDidMount() {
+		this.props.setMainUser()
 	}
 
 	async handleAddArticle() {
@@ -39,20 +46,22 @@ class EachArticle extends React.Component {
 			userId: this.state.userId
 		}
 
-		await axios.post('/api/articles/saved', article)
-		.then(res => {
-			console.log(res.data)
-			// alert('added article to saved files')
-		}).catch(function(error) {
-			alert('error in saving article')
-		})
+		// await axios.post('/api/articles/saved', article)
+		// .then(res => {
+		// 	console.log(res.data)
+		// 	// alert('added article to saved files')
+		// }).catch(function(error) {
+		// 	alert('error in saving article')
+		// })
+
+		await this.props.postArticle(article)
 	}
 
 	render() {
 		const {url, title} = this.props;
 		return (
 			<div>
-			<button type='submit' disabled={this.state.userId} value={title} name="title" onClick={this.handleAddArticle} className='add-button'>+</button>
+			<button type='submit' value={title} name="title" onClick={this.handleAddArticle} className='add-button'>+</button>
 			<a href={url}>
 			{` ${title}`}
 				<br />
@@ -62,4 +71,18 @@ class EachArticle extends React.Component {
 	}
 };
 
-export default EachArticle;
+const mapState = state => ({
+	articles: state.articles,
+	userId: state.userId
+});
+
+const mapDispatch = dispatch => ({
+	postArticle: (article) => dispatch(postArticle(article)),
+	setMainUser: () => dispatch(setMainUser())
+});
+
+export default withRouter(
+	connect(
+		mapState,
+		mapDispatch
+	)(EachArticle));
