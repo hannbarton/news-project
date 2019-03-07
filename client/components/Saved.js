@@ -1,22 +1,23 @@
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { fetchArticles } from "../reducer";
+import { fetchArticles, setMainUser } from "../reducer";
 import { withRouter } from "react-router-dom";
 
 class Saved extends React.Component {
 	constructor() {
 		super()
 
-		// this.state = {
-		// 	userId: null
-		// }
+		this.state = {
+			userId: null
+		}
 
 		this.meHandler = this.meHandler.bind(this)
 	}
-	componentDidMount() {
+	async componentDidMount() {
 		this.meHandler()
-		this.props.fetchArticles(this.props.userId)
+		await this.props.setMainUser()
+		await this.props.fetchArticles(this.props.userId)
 	}
 
 	async meHandler() {
@@ -75,6 +76,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
 	fetchArticles: (userId) => dispatch(fetchArticles(userId)),
+	setMainUser: () => dispatch(setMainUser())
 });
 
 export default withRouter(

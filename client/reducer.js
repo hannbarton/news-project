@@ -17,7 +17,7 @@ export const getAllArticles = (articles) => ({
 	articles
 })
 export const addArticle = (article) => ({
-	type: GET_ALL_ARTICLES,
+	type: ADD_ARTICLE,
 	article
 })
 
@@ -44,7 +44,7 @@ export const postArticle = (article) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.post(`/api/articles/saved`, article);
-			dispatch(addArticle(response.data));
+			dispatch(addArticle(response.data.article));
 		}
 		catch (err) {
 			console.log(err)
