@@ -7,6 +7,8 @@
     "build-client": "webpack",
     "build-client-watch": "webpack -w",
     "deploy": "script/deploy",
+    "heroku-token": "script/encrypt-heroku-auth-token",
+    "postinstall": "touch secrets.js",
     "start": "node server/index.js",
     "start-dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
     "start-server": "nodemon server/index.js -e html,js,scss --ignore public --ignore client",
