@@ -4,6 +4,7 @@ import Welcome from "./Welcome";
 import EachArticle from "./EachArticle";
 import Saved from "./Saved";
 import Navbar from "./Navbar";
+import Footer from './Footer'
 
 class Home extends React.Component {
 	constructor() {
@@ -231,6 +232,7 @@ class Home extends React.Component {
 						</div>
 					</div>
 				</div>
+				<Footer/>
 			</div>
 		);
 	}
