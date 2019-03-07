@@ -23,3 +23,9 @@ There are three views in my application:
 2. Save the api key within your secrets.js folder in the root of the application and save it as `process.env.NEWS_API_KEY`
 3. Create a db called `news-project` in postgreSQL
 4. `npm run start-dev`
+
+### My application will:
+1. alert you if your email or password is incorrect
+2. alert you if you already have an account and you are trying to sign up again with the same email
+3. allow you to login and logout
+4. allow you to save articles to your account
