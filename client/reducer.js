@@ -26,7 +26,6 @@ export const setUser = (userId) => ({
     userId
 })
 
-
 // THUNK CREATORS
 export const fetchArticles = (userId) => {
 	return async (dispatch) => {

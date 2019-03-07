@@ -5,17 +5,18 @@ This is a simple web application which fetches news articles from an external ap
 1. [x] Sign up and login as a user using local-passport.
 2. [x] Fetch news articles via news api.
 3. [x] Display these news sources as buttons and clicking on them shows the top 10 articles for that news source.
-4. [ ] The user is able to save articles and there is a button which allows the user to look at the saved articles (Bonus-Points).
+4. [x] The user is able to save articles
+5. [ ] There is a button which allows the user to look at the saved articles (Bonus-Points).
 
 There are three views in my application:
 1. Login screen.
-2. Home screen with links to the news sources and link to view saved articles.
-3. Detail Screen which shows either ten news articles by source or saved articles.
+2. Home screen with clickable buttons to 5 news sources
+3. Home screen that shows ten news articles by source and your saved articles.
 
 ### Tech Stack Used:
 1. Backend - Node.js
-2. Frontend - React.
-3. Database - postgreSQL.
+2. Frontend - React
+3. Database - postgreSQL
 
 ## How to get my application running:
 1. Register with news api to generate an api-key and get access to thier api. https://newsapi.org/
