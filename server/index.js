@@ -17,14 +17,12 @@ require("../secrets");
 
 // serialize User
 passport.serializeUser((user, done) => {
-	console.log("serializedd", user);
 	done(null, user.id);
 });
 
 // deserialize User
 passport.deserializeUser(async (id, done) => {
 	try {
-		console.log("deseralizeddd", id);
 		const user = await db.models.user.findByPk(id);
 		done(null, user);
 	} catch (err) {
@@ -127,7 +125,6 @@ const createApp = () => {
 	// static file-serving middleware
 	app.use(express.static(path.join(__dirname, "..", "public")));
 
-	// any remaining requests with an extension (.js, .css, etc.) send 404
 	app.use((req, res, next) => {
 		if (path.extname(req.path).length) {
 			const err = new Error("Not found");

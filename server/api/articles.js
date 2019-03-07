@@ -76,7 +76,6 @@ router.get("/newsci", async (req, res, next) => {
 router.post('/saved', async (req, res, next) => {
 	try {
 		const article = await Article.create(req.body);
-		// console.log('user', req.user, req.body)
 		res.json({
 			article
 		});
