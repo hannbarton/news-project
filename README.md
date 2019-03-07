@@ -1,6 +1,8 @@
 # News Website
 This is a simple web application which fetches news articles from an external api vendor and displays them. This application was created using my own boilerplate located here: https://github.com/hannbarton/boiler
 
+A deployed version of my application can be found: https://my-news-reader.herokuapp.com
+
 ### My Application Can:
 1. [x] Sign up and login as a user
 2. [x] Alert you if your email or password is incorrect or if you did not enter anything in the login/signup bar(s)
