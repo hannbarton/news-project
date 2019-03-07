@@ -16,10 +16,10 @@ export const getAllArticles = (articles) => ({
 })
 
 // THUNK CREATORS
-export const fetchArticles = () => {
+export const fetchArticles = (userId) => {
 	return async (dispatch) => {
 		try {
-			const response = await axios.get(`/api/users/${state.userId}`);
+			const response = await axios.get(`/api/users/all/${userId}`);
 			dispatch(getAllArticles(response.data.articles));
 		}
 		catch (err) {

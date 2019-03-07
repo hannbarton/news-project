@@ -6,24 +6,17 @@ import { withRouter } from "react-router-dom";
 
 class Saved extends React.Component {
 	constructor() {
-		super();
+		super()
 
 		this.state = {
-			userId: null,
-			articles: []
-		};
-		this.meHandler = this.meHandler.bind(this);
-		this.updateHandler = this.updateHandler.bind(this);
-	}
+			userId: null
+		}
 
+		this.meHandler = this.meHandler.bind(this)
+	}
 	async componentDidMount() {
-		await this.meHandler();
-		await this.updateHandler();
-		console.log("this is the state of articles", this.state);
-	}
-
-	componentDidUpdate() {
-		console.log("state", this.state);
+		await this.meHandler()
+		await this.props.fetchArticles(this.state.userId)
 	}
 
 	async meHandler() {
@@ -39,26 +32,26 @@ class Saved extends React.Component {
 			.catch(err => console.log(err));
 	}
 
-	async updateHandler() {
-		await axios
-			.get(`/api/users/all/${this.state.userId}`)
-			.then(res => {
-				console.log("res", res.data);
+	// async updateHandler() {
+	// 	await axios
+	// 		.get(`/api/users/all/${this.state.userId}`)
+	// 		.then(res => {
+	// 			console.log("res", res.data);
 
-				const articles = res.data.articles;
-				this.setState({
-					articles: articles
-				});
-			})
-			.catch(err => console.log(err));
-	}
+	// 			const articles = res.data.articles;
+	// 			this.setState({
+	// 				articles: articles
+	// 			});
+	// 		})
+	// 		.catch(err => console.log(err));
+	// }
 
 	render() {
 		return (
 			<div className="saved-container">
 				<div className="saved">
 					<h5>{"My Saved Articles:"}</h5>
-					{this.state.articles.map((each, key) => {
+					{this.props.articles.map((each, key) => {
 						return (
 							<div className="saved-mini-container" key={key}>
 								{"[o]"}
@@ -81,7 +74,7 @@ const mapState = state => ({
 });
 
 const mapDispatch = dispatch => ({
-	fetchArticles: (userId) => dispatch(fetchCampuses(userId)),
+	fetchArticles: (userId) => dispatch(fetchArticles(userId)),
 });
 
 export default withRouter(
